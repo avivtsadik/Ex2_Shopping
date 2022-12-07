@@ -18,12 +18,17 @@ export const ProductCard = ({ product, onShowMore }: ProductCardProps) => {
   const { productName, imagePrimary, price } = product;
 
   return (
-    <Card>
+    <Card sx={{ boxShadow: 6 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             {productName.charAt(0).toUpperCase()}
           </Avatar>
+        }
+        action={
+          <Button size="small" onClick={() => onShowMore(product)}>
+            <AddShoppingCartIcon></AddShoppingCartIcon>
+          </Button>
         }
         title={productName}
         subheader={`Price: ${price}₪`}
@@ -41,14 +46,6 @@ export const ProductCard = ({ product, onShowMore }: ProductCardProps) => {
           mussels, if you like.
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <CardActions>
-          <Button size="small" onClick={() => onShowMore(product)}>
-            Add to cart
-            <AddShoppingCartIcon></AddShoppingCartIcon>
-          </Button>
-        </CardActions>
-      </CardActions>
     </Card>
   );
 };

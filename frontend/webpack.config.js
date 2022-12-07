@@ -8,6 +8,9 @@ module.exports = (env, argv) => {
   return {
     entry: "./src/index.tsx",
     mode,
+    devServer: {
+      historyApiFallback: true,
+    },
     module: {
       rules: [
         {

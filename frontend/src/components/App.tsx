@@ -1,37 +1,18 @@
-import React, { useState } from "react";
-import { ProductCard } from "@components/ProductCard";
-import { products, ProductType } from "@services/productsManager";
-import {Grid, Typography} from "@mui/material";
-import { grey } from "@mui/material/colors";
-import { ProductDialog } from "./ProductDialog";
+import React from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import HomePage from "./HomePage";
+import Cart from "./Cart";
+import AppBar from "./AppBar";
 
 const App = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [productSelected, setProductSelected] = useState<ProductType>();
-
-  const onItemSelected = (product: ProductType) => {
-    setIsDialogOpen(true);
-    setProductSelected(product);
-  };
-
   return (
-    <>
-      <Typography variant='h2'>Idan And Aviv Store</Typography>
-      <Grid container sx={{ bgcolor: grey["400"] }} spacing={10}>
-        {products.map((product: ProductType, key) => (
-          <Grid key={key} item xl={3} md={4} xs={6}>
-            <ProductCard product={product} onShowMore={onItemSelected} />
-          </Grid>
-        ))}
-        <ProductDialog
-          fullWidth
-          maxWidth="sm"
-          product={productSelected}
-          open={isDialogOpen}
-          onClose={() => setIsDialogOpen(false)}
-        ></ProductDialog>
-      </Grid>
-    </>
+    <BrowserRouter>
+      <AppBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
