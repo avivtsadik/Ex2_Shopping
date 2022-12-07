@@ -1,5 +1,5 @@
 export const config = {
-    db: {
-        host: "mongodb://localhost:27017/items"
-    }
-}
+  db: {
+    host: "mongodb+srv://avivtsadik:aviv@cluster0.kvjrbft.mongodb.net/items",
+  },
+};
