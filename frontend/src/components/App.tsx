@@ -7,11 +7,11 @@ import {Grid} from "@mui/material";
 import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client";
 import {ProductType} from "@services/productsManager";
 
-// const client = new ApolloClient({
-//     cache: new InMemoryCache(),
-//     uri: "http://localhost:4000/graphql"
-// });
-//
+const client = new ApolloClient({
+    cache: new InMemoryCache(),
+    uri: "http://localhost:4000/graphql"
+});
+
 export const cartContext = createContext<ProductType[]>([]);
 
 const App = () => {
