@@ -8,7 +8,7 @@ const HomePage = () => {
         <Grid container sx={{mt: 10}} spacing={6}>
             {products.map((product: ProductType, key) => (
                 <Grid key={key} item xl={3} md={4} xs={6}>
-                    <ProductCard product={product}/>
+                    <ProductCard product={product} isAddable={true}/>
                 </Grid>
             ))}
         </Grid>

@@ -7,31 +7,28 @@ import {red} from "@mui/material/colors";
 import {Alert, Button, CardContent, Snackbar, Typography} from "@mui/material";
 import {ProductType} from "@services/productsManager";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import {gql, useQuery} from "@apollo/client";
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import {cartContext} from "@components/App";
-
-const query = gql`
-    query getItems {
-        items {
-           id
-        }
-    }
-`
 
 interface ProductCardProps {
     product: ProductType;
+    isAddable: boolean;
 }
 
-export const ProductCard = ({product}: ProductCardProps) => {
+export const ProductCard = ({product, isAddable}: ProductCardProps) => {
     const {productName, imagePrimary, price} = product;
-    const cartProducts = useContext(cartContext);
+    const {cartProducts, setCartProducts} = useContext(cartContext);
     const [snackBarOpen, setSnackBarOpen] = useState(false);
 
     const onCartAdd = () => {
-        if (cartProducts.findIndex(item => item.id == product.id) == -1) {
-            cartProducts.push(product);
+        if (!cartProducts.has(product.id)) {
+            setCartProducts(cartProducts.set(product.id, product));
             setSnackBarOpen(true);
         }
+    }
+
+    const onCartRemove = () => {
+        setCartProducts(cartProducts.delete(product.id));
     }
 
     return (
@@ -44,9 +41,13 @@ export const ProductCard = ({product}: ProductCardProps) => {
                         </Avatar>
                     }
                     action={
-                        <Button size="small" onClick={onCartAdd}>
-                            <AddShoppingCartIcon></AddShoppingCartIcon>
-                        </Button>
+                        isAddable ?
+                            <Button size="small" onClick={onCartAdd}>
+                                <AddShoppingCartIcon></AddShoppingCartIcon>
+                            </Button> :
+                            <Button size="small" onClick={onCartRemove}>
+                                <RemoveCircleOutlineIcon></RemoveCircleOutlineIcon>
+                            </Button>
                     }
                     title={productName}
                     subheader={`Price: ${price}₪`}

@@ -1,5 +1,5 @@
 export interface ProductType {
-  id: number;
+  id: string;
   productName: string;
   desc: string;
   price: number;
@@ -10,7 +10,7 @@ export interface ProductType {
 
 export const products: ProductType[] = [
   {
-    id: 1,
+    id: "1",
     storeName: "store 1",
     productName: "snack 1",
     desc: "I am the best snack1",
@@ -21,7 +21,7 @@ export const products: ProductType[] = [
       "https://encrypted-tbn0.gstatic.com/imagePrimarys?q=tbn:ANd9GcTkBVGPxXhLtnCy-FO_f1Izny0XxLDG8jLZcQ&usqp=CAU",
   },
   {
-    id: 2,
+    id: "2",
     storeName: "store 2",
     productName: "snack 2",
     desc: "I am the best snack2",
@@ -32,7 +32,7 @@ export const products: ProductType[] = [
       "https://encrypted-tbn0.gstatic.com/imagePrimarys?q=tbn:ANd9GcTkBVGPxXhLtnCy-FO_f1Izny0XxLDG8jLZcQ&usqp=CAU",
   },
   {
-    id: 3,
+    id: "3",
     storeName: "store 3",
     productName: "snack 3",
     desc: "I am the best snack3",
@@ -43,7 +43,7 @@ export const products: ProductType[] = [
       "https://encrypted-tbn0.gstatic.com/imagePrimarys?q=tbn:ANd9GcTkBVGPxXhLtnCy-FO_f1Izny0XxLDG8jLZcQ&usqp=CAU",
   },
   {
-    id: 4,
+    id: "4",
     storeName: "store 4",
     productName: "snack 4",
     desc: "I am the best snack4",
@@ -54,7 +54,7 @@ export const products: ProductType[] = [
       "https://encrypted-tbn0.gstatic.com/imagePrimarys?q=tbn:ANd9GcTkBVGPxXhLtnCy-FO_f1Izny0XxLDG8jLZcQ&usqp=CAU",
   },
   {
-    id: 5,
+    id: "5",
     storeName: "store 5",
     productName: "snack 5",
     desc: "I am the best snack5",
@@ -65,7 +65,7 @@ export const products: ProductType[] = [
       "https://encrypted-tbn0.gstatic.com/imagePrimarys?q=tbn:ANd9GcTkBVGPxXhLtnCy-FO_f1Izny0XxLDG8jLZcQ&usqp=CAU",
   },
   {
-    id: 6,
+    id: '6',
     storeName: "store 6",
     productName: "snack 6",
     desc: "I am the best snack6",
@@ -76,7 +76,7 @@ export const products: ProductType[] = [
       "https://encrypted-tbn0.gstatic.com/imagePrimarys?q=tbn:ANd9GcTkBVGPxXhLtnCy-FO_f1Izny0XxLDG8jLZcQ&usqp=CAU",
   },
   {
-    id: 7,
+    id: '7',
     storeName: "store 7",
     productName: "snack 7",
     desc: "I am the best snack7",
@@ -87,7 +87,7 @@ export const products: ProductType[] = [
       "https://encrypted-tbn0.gstatic.com/imagePrimarys?q=tbn:ANd9GcTkBVGPxXhLtnCy-FO_f1Izny0XxLDG8jLZcQ&usqp=CAU",
   },
   {
-    id: 8,
+    id: '8',
     storeName: "store 8",
     productName: "snack 8",
     desc: "I am the best snack8",
@@ -98,7 +98,7 @@ export const products: ProductType[] = [
       "https://encrypted-tbn0.gstatic.com/imagePrimarys?q=tbn:ANd9GcTkBVGPxXhLtnCy-FO_f1Izny0XxLDG8jLZcQ&usqp=CAU",
   },
   {
-    id: 9,
+    id: '9',
     storeName: "store 9",
     productName: "snack 9",
     desc: "I am the best snack9",
@@ -109,7 +109,7 @@ export const products: ProductType[] = [
       "https://encrypted-tbn0.gstatic.com/imagePrimarys?q=tbn:ANd9GcTkBVGPxXhLtnCy-FO_f1Izny0XxLDG8jLZcQ&usqp=CAU",
   },
   {
-    id: 10,
+    id: '10',
     storeName: "store 10",
     productName: "snack 10",
     desc: "I am the best snack10",

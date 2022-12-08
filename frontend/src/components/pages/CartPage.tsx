@@ -5,13 +5,13 @@ import {ProductCard} from "@components/ProductCard";
 import {cartContext} from "@components/App";
 
 const CartPage = () => {
-    const cartProducts = useContext(cartContext);
+    const {cartProducts} = useContext(cartContext);
 
     return (
         <Grid container sx={{mt: 10}} spacing={6}>
-            {cartProducts.map((product: ProductType, key) => (
+            {Array.from(cartProducts.values()).map((product: ProductType, key) => (
                 <Grid key={key} item xl={3} md={4} xs={6}>
-                    <ProductCard product={product}/>
+                    <ProductCard product={product} isAddable={false}/>
                 </Grid>
             ))}
         </Grid>
