@@ -1,7 +1,11 @@
-import {Schema, model} from "mongoose";
+import { Schema, model } from "mongoose";
+import item from "../../graphql/types/item";
+import { ItemModel } from "./itemSchema";
 
-const itemSchema = new Schema({
-    userId: {type: String, required: true}
+const orderSchema = new Schema({
+  orderedItems: { type: [Number], required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
 });
 
-export const ItemModel = model('item', itemSchema);
+export const OrderSchema = model("order", orderSchema);

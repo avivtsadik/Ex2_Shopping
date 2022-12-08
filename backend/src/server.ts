@@ -15,10 +15,6 @@ import { config } from "./config/config";
   const httpServer = http.createServer(app);
   const schema = await getSchema();
 
-  // mongoose.connect(config.db.host, {}, () => {
-  //   console.log("connected to database");
-  // });
-
   const server = new ApolloServer({
     schema,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
