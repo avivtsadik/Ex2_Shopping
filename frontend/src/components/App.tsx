@@ -18,9 +18,10 @@ interface CartContextType {
     setCartProducts: (newMap: Map<string, ProductType>) => void
 }
 
-export const cartContext = createContext<CartContextType>({
+export const CartContext = createContext<CartContextType>({
     cartProducts: Map(),
-    setCartProducts: (Map) => {}
+    setCartProducts: (Map) => {
+    }
 });
 
 const App = () => {
@@ -35,15 +36,17 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            <cartContext.Provider value={contextValue}>
-                <AppBar/>
-                <Grid>
-                    <Routes>
-                        <Route path="/" element={<HomePage/>}/>
-                        <Route path="/cart" element={<CartPage/>}/>
-                    </Routes>
-                </Grid>
-            </cartContext.Provider>
+            <CartContext.Provider value={contextValue}>
+                <ApolloProvider client={client}>
+                    <AppBar/>
+                    <Grid>
+                        <Routes>
+                            <Route path="/" element={<HomePage/>}/>
+                            <Route path="/cart" element={<CartPage/>}/>
+                        </Routes>
+                    </Grid>
+                </ApolloProvider>
+            </CartContext.Provider>
         </BrowserRouter>
     );
 };

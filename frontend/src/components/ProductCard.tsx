@@ -8,7 +8,7 @@ import {Alert, Button, CardContent, Snackbar, Typography} from "@mui/material";
 import {ProductType} from "@services/productsManager";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-import {cartContext} from "@components/App";
+import {CartContext} from "@components/App";
 
 interface ProductCardProps {
     product: ProductType;
@@ -17,7 +17,7 @@ interface ProductCardProps {
 
 export const ProductCard = ({product, isAddable}: ProductCardProps) => {
     const {productName, imagePrimary, price} = product;
-    const {cartProducts, setCartProducts} = useContext(cartContext);
+    const {cartProducts, setCartProducts} = useContext(CartContext);
     const [snackBarOpen, setSnackBarOpen] = useState(false);
 
     const onCartAdd = () => {
@@ -66,7 +66,7 @@ export const ProductCard = ({product, isAddable}: ProductCardProps) => {
                     </Typography>
                 </CardContent>
             </Card>
-            <Snackbar open={snackBarOpen} autoHideDuration={1000} onClose={() => setSnackBarOpen(false)}>
+            <Snackbar open={snackBarOpen} autoHideDuration={3000} onClose={() => setSnackBarOpen(false)}>
                 <Alert onClose={() => setSnackBarOpen(false)} severity="success" sx={{width: '100%'}}>
                     Added to cart!
                 </Alert>

@@ -1,20 +1,40 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {ProductType} from "@services/productsManager";
-import {Grid} from "@mui/material";
+import {Alert, Grid, Snackbar} from "@mui/material";
 import {ProductCard} from "@components/ProductCard";
-import {cartContext} from "@components/App";
+import {CartContext} from "@components/App";
+import Button from "@mui/material/Button";
+import {Map} from 'immutable'
 
 const CartPage = () => {
-    const {cartProducts} = useContext(cartContext);
+    const {cartProducts, setCartProducts} = useContext(CartContext);
+    const [snackBarOpen, setSnackBarOpen] = useState(false);
+
+    const onOrderItems = () => {
+        setCartProducts(Map());
+        setSnackBarOpen(true);
+    }
 
     return (
-        <Grid container sx={{mt: 10}} spacing={6}>
-            {Array.from(cartProducts.values()).map((product: ProductType, key) => (
-                <Grid key={key} item xl={3} md={4} xs={6}>
-                    <ProductCard product={product} isAddable={false}/>
-                </Grid>
-            ))}
-        </Grid>
+        <>
+            <Grid container justifyContent={'end'}>
+                <Button variant='contained' sx={{mt: 10}} onClick={onOrderItems}>
+                    Order items
+                </Button>
+            </Grid>
+            <Grid container spacing={6}>
+                {Array.from(cartProducts.values()).map((product: ProductType, key) => (
+                    <Grid key={key} item xl={3} md={4} xs={6}>
+                        <ProductCard product={product} isAddable={false}/>
+                    </Grid>
+                ))}
+            </Grid>
+            <Snackbar open={snackBarOpen} autoHideDuration={3000} onClose={() => setSnackBarOpen(false)}>
+                <Alert onClose={() => setSnackBarOpen(false)} severity="success" sx={{width: '100%'}}>
+                    Ordered!
+                </Alert>
+            </Snackbar>
+        </>
     );
 }
 
