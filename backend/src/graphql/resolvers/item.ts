@@ -3,8 +3,14 @@ import { ItemModel } from "../../db/schema/itemSchema";
 
 export default {
   Query: {
-    item: (parent: any, args: QueryItemArgs, contextValue: any, info: any) => {
-      return ItemModel.findById(args.id);
+    item: async (
+      parent: any,
+      args: QueryItemArgs,
+      contextValue: any,
+      info: any
+    ) => {
+      const items = await ItemModel.find();
+      return items;
     },
   },
 };

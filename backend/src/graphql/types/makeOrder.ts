@@ -1,7 +1,13 @@
-import {gql} from "graphql-tag";
+import { gql } from "graphql-tag";
 
 export default gql`
-        type Mutation {
-            makeOrder(ids: [Int]): String
-        }
-    `
+  input OrderData {
+    orderedItems: [Int]
+    firstName: String
+    lastName: String
+  }
+
+  type Mutation {
+    makeOrder(orderData: OrderData): String
+  }
+`;
