@@ -18,7 +18,7 @@ const getAllItems = gql`
 `;
 
 const HomePage = () => {
-  const { loading, error, data } = useQuery(getAllItems);
+  const { loading, error, data } = useQuery(getAllItems, {});
   return (
     <Grid container sx={{ mt: 10 }} spacing={6}>
       {!loading ? (
